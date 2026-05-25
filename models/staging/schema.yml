@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_taxi_trips
+    description: "Cleaned and renamed fields from the raw Chicago taxi trips public dataset. Filtered to 2023 only."
+    columns:
+      - name: taxi_id
+        description: "Unique identifier for the taxi vehicle."
+        data_tests:
+          - not_null
+
+      - name: trip_start_timestamp
+        description: "Timestamp when the trip started."
+        data_tests:
+          - not_null
+
+      - name: trip_date
+        description: "Date of the trip, derived from trip_start_timestamp."
+        data_tests:
+          - not_null
+
+      - name: fare
+        description: "Base fare amount for the trip in USD."
+
+      - name: trip_total
+        description: "Total amount charged for the trip including fare, tips and tolls."

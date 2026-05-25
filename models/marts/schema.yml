@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: mart_taxi_trips_daily
+    description: "Daily aggregation of Chicago taxi trips for 2023. One row per day."
+    columns:
+      - name: trip_date
+        description: "The date of the trips."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: total_trips
+        description: "Total number of trips on that day."
+        data_tests:
+          - not_null
+
+      - name: avg_fare
+        description: "Average base fare across all trips on that day."
+        data_tests:
+          - not_null
+
+      - name: avg_tip
+        description: "Average tip across all trips on that day."
+
+      - name: total_revenue
+        description: "Sum of trip_total across all trips on that day."
